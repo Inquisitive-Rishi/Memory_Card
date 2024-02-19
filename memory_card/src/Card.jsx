@@ -1,7 +1,7 @@
-function Card({img}) {
+function Card({url}) {
   return (
-    <div className="h-30 min-w-30 bg-cover">
-      {img}
+    <div className="rounded-lg overflow-hidden max-h-30 max-w-30 flex">
+      <img src={url}/>
     </div>
   )
 }

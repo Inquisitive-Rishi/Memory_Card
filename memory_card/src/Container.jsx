@@ -1,7 +1,11 @@
+import Card from "./Card"
+
 function Container() {
 
   return (
-    <h1>Hello</h1>
+    <div className="p-3">
+
+    </div>
   )
 }
 
