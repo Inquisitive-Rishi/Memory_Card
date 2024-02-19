@@ -1,36 +1,25 @@
 import { useState, useEffect } from 'react'
 import './index.css'
+import Header from './Header'
+import Container from './Container'
+import Footer from './Footer'
+
+const contentStyle = {
+  display: 'grid',
+  gridGap: '20px',
+  gridTemplateColumns: 'repeat(auto-fill, minmax(250px, 1fr))'
+}
 
 function App() {
-  const [imgData, setImgData] = useState([])
-  const reqUrl = "https://api.giphy.com/v1/gifs/translate?api_key=l9wddb2iB91ZMFFD1U2BXvF4C5wubzBG&s=funny"
 
-  useEffect(() => {
-    async function getData() {
-      try {        
-        const res = await fetch(reqUrl)
-        
-        if (res.ok) {
-          let parsed = await res.json()
-          let imgUrl = parsed.data.images.original.url
-          if (imgData.length <= 20) {
-            setImgData(prevImg => [...prevImg, imgUrl])
-            console.log(imgUrl);
-            console.log(imgData);
-          }
-        }
-      } catch (err) {
-        console.log(err);
-      }
-    }
-    getData()
-  },[imgData]) 
   return (
-    <>
-    <h1 className="text-3xl font-bold underline">
-      Hello world!
-    </h1>
-    </>
+    <div className="flex flex-col min-h-screen">
+      <Header/>
+      <div style={contentStyle} className="flex-1">
+        <Container/>
+      </div>
+      <Footer/>
+    </div>
   )
 }
 
